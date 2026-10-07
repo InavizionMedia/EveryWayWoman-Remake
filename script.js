@@ -79,6 +79,7 @@
   function setMenu(open){
     toggle.classList.toggle("open", open);
     mobileNav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.body.style.overflow = open ? "hidden" : "";
