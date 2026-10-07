@@ -38,7 +38,7 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 
 /* portrait phones: aim each hero slide at its subject instead of the empty center */
 @media(max-width:759px){
-  .hero-slide.s1{background-position:35% 70%}
+  .hero-slide.s1{background-position:22% 70%}
   .hero-slide.s2{background-position:25% 70%}
   .hero-slide.s3{background-position:28% 30%}
 }
