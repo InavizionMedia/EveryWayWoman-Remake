@@ -36,10 +36,10 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .brand-script{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--ivory);text-shadow:0 1px 12px rgba(43,26,20,.6),0 0 4px rgba(43,26,20,.65)}
 .brand-sub{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:.25rem;text-shadow:0 1px 10px rgba(43,26,20,.6)}
 
-/* portrait phones: classic non-branded slides (branded crops don't sit well small) */
+/* portrait phones: aim each hero slide at its subject instead of the empty center */
 @media(max-width:759px){
-  .hero-slide.s1{background-image:url('assets/hero-studio.jpg')!important;background-position:35% 70%}
-  .hero-slide.s2{background-image:url('assets/hero-desk.jpg')!important;background-position:25% 70%}
+  .hero-slide.s1{background-position:35% 70%}
+  .hero-slide.s2{background-position:25% 70%}
   .hero-slide.s3{background-position:28% 30%}
 }
 .desktop-nav{display:none;gap:1.75rem;margin-left:auto}
@@ -114,7 +114,9 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
 .hero-prev{left:1rem}
 .hero-next{right:1rem}
 @media(min-width:760px){.hero-arrow{display:block}}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,27,23,.28) 0%,rgba(42,27,23,0) 34%,rgba(42,27,23,.12) 60%,rgba(42,27,23,.72) 100%)}
+.hero-scrim{position:absolute;inset:0;background:
+  radial-gradient(ellipse at center,transparent 52%,rgba(43,26,20,.52) 100%),
+  linear-gradient(180deg,rgba(42,27,23,.28) 0%,rgba(42,27,23,0) 34%,rgba(42,27,23,.12) 60%,rgba(42,27,23,.72) 100%)}
 .hero-badge{position:absolute;top:5.5rem;left:1.25rem;z-index:2;background:rgba(250,245,236,.85);backdrop-filter:blur(8px)}
 .hero-copy{position:relative;z-index:2;padding:0 1.25rem 7.5rem;max-width:1240px;width:100%;margin:0 auto}
 .hero-copy h1{color:var(--ivory);font-size:clamp(3rem,12vw,7.5rem);font-weight:900;letter-spacing:-.01em;text-shadow:0 4px 40px rgba(42,27,23,.5),0 2px 10px rgba(42,27,23,.55),0 1px 3px rgba(42,27,23,.5)}
