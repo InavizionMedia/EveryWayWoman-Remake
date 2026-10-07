@@ -57,7 +57,10 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .drop-menu a{display:block;text-decoration:none;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);padding:.75rem 1rem;border-radius:9px;opacity:.8}
 .drop-menu a:hover{background:var(--cream);opacity:1;color:var(--berry)}
 .drop-menu a::after{display:none}
-.watch-btn{margin-left:auto;background:linear-gradient(135deg,#2e1c14,#8a5f26);color:var(--ivory);border:0;border-radius:999px;padding:.65rem 1.6rem;font-family:var(--sans);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:filter .25s,transform .25s}
+.watch-btn{margin-left:auto;background:linear-gradient(135deg,#2e1c14,#8a5f26);color:var(--ivory);border:0;border-radius:999px;padding:.65rem 1.6rem;font-family:var(--sans);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:filter .25s,transform .25s,opacity .35s ease}
+/* header WATCH fades in only after the hero scrolls away (the menu's own WATCH stays as-is) */
+.header-inner > .watch-btn{opacity:0;transform:translateY(-8px);pointer-events:none}
+body.past-hero .header-inner > .watch-btn,body.menu-open .header-inner > .watch-btn{opacity:1;transform:none;pointer-events:auto}
 .watch-btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
 .desktop-nav + .watch-btn{margin-left:0}
 .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.5rem;position:relative}
@@ -216,6 +219,8 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 .section-head h2{font-size:clamp(2.4rem,8vw,4rem)}
 .count-line{color:var(--muted);margin-top:.6rem;font-size:.95rem;letter-spacing:.06em}
 .ep-section{margin-top:4.5rem}
+/* open dialogue gets a lighter-espresso wash to break up the ivory run */
+#open-dialogue{background:linear-gradient(180deg,#f5ead9,#eedcbf);margin:4.5rem calc(50% - 50vw) 0;padding:3.5rem calc(50vw - 50%) 4rem}
 .ep-section:first-of-type{margin-top:3rem}
 .ep-section-head{text-align:center;margin-bottom:2rem}
 .ep-section-head h3{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:.4rem}
