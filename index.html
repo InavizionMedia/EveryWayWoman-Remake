@@ -9,16 +9,16 @@
 <meta property="og:description" content="Daytime talk for women: news, real stories, and great conversations. New episodes weekly.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://inavizionmedia.github.io/EveryWayWoman-Remake/">
-<meta property="og:image" content="https://inavizionmedia.github.io/EveryWayWoman-Remake/assets/og-image.jpg?v=202610061854">
+<meta property="og:image" content="https://inavizionmedia.github.io/EveryWayWoman-Remake/assets/og-image.jpg?v=202610061905">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Every Way Woman — Real Talk. Every Way.">
 <meta name="twitter:description" content="Daytime talk for women: news, real stories, and great conversations.">
-<meta name="twitter:image" content="https://inavizionmedia.github.io/EveryWayWoman-Remake/assets/og-image.jpg?v=202610061854">
+<meta name="twitter:image" content="https://inavizionmedia.github.io/EveryWayWoman-Remake/assets/og-image.jpg?v=202610061905">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610061854">
+<link rel="stylesheet" href="style.css?v=202610061905">
 </head>
 <body>
 
@@ -30,8 +30,14 @@
     </a>
     <nav class="desktop-nav" aria-label="Primary">
       <a href="#home" data-spy="home" class="active">Home</a>
-      <a href="#open-dialogue" data-spy="open-dialogue">Open Dialogue</a>
-      <a href="#episodes" data-spy="episodes">Episodes</a>
+      <div class="nav-drop">
+        <a href="#episodes" data-spy="episodes" class="drop-toggle">Episodes</a>
+        <div class="drop-menu" role="menu" aria-label="Episode categories">
+          <a href="#full-shows" role="menuitem">Full Shows</a>
+          <a href="#open-dialogue" role="menuitem">Open Dialogue</a>
+          <a href="#relationships" role="menuitem">Relationships</a>
+        </div>
+      </div>
       <a href="#about" data-spy="about">About</a>
     </nav>
     <button class="watch-btn" data-open-video>Watch</button>
@@ -41,9 +47,13 @@
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
     <a href="#home" data-spy="home"><i>01</i>Home</a>
-    <a href="#open-dialogue" data-spy="open-dialogue"><i>02</i>Open Dialogue</a>
-    <a href="#episodes" data-spy="episodes"><i>03</i>Episodes</a>
-    <a href="#about" data-spy="about"><i>04</i>About</a>
+    <a href="#episodes" data-spy="episodes"><i>02</i>Episodes</a>
+    <div class="mobile-sub">
+      <a href="#full-shows">Full Shows</a>
+      <a href="#story">Open Dialogue</a>
+      <a href="#relationships">Relationships</a>
+    </div>
+    <a href="#about" data-spy="about"><i>03</i>About</a>
     <button class="watch-btn mobile-watch" data-open-video>Watch the show</button>
   </nav>
 </header>
@@ -51,7 +61,7 @@
 <main>
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
-  <img class="hero-bg" src="assets/hero.jpg?v=202610061854" alt="Every Way Woman studio — two armchairs on a warm, sunlit talk-show stage" fetchpriority="high">
+  <img class="hero-bg" src="assets/hero.jpg?v=202610061905" alt="Every Way Woman studio — two armchairs on a warm, sunlit talk-show stage" fetchpriority="high">
   <div class="hero-scrim" aria-hidden="true"></div>
 
   <div class="hero-badge pill">New episodes weekly</div>
@@ -77,14 +87,14 @@
   <div class="action-bar" role="navigation" aria-label="Quick actions">
     <button class="ab-item" data-open-video>Watch latest</button>
     <a class="ab-item" href="#episodes">Browse episodes</a>
-    <a class="ab-item" href="#episodes" data-topic-jump="relationships">Topics</a>
+    <a class="ab-item" href="#open-dialogue">Topics</a>
     <a class="ab-item" href="#newsletter">Newsletter</a>
     <button class="ab-cta" data-open-video>Start watching</button>
   </div>
 </section>
 
 <!-- ============ STORY ============ -->
-<section class="story" id="open-dialogue">
+<section class="story" id="story">
   <div class="story-grid">
     <div class="story-text reveal">
       <p class="kicker">Open Dialogue</p>
@@ -98,11 +108,11 @@
       </dl>
     </div>
     <figure class="story-tall reveal">
-      <img src="assets/story-tall.jpg?v=202610061854" alt="Behind the scenes — director's chair and studio camera in warm light" loading="lazy">
+      <img src="assets/story-tall.jpg?v=202610061905" alt="Behind the scenes — director's chair and studio camera in warm light" loading="lazy">
     </figure>
     <div class="story-stack">
       <figure class="reveal">
-        <img src="assets/story-wide.jpg?v=202610061854" alt="Studio audience of women applauding" loading="lazy">
+        <img src="assets/story-wide.jpg?v=202610061905" alt="Studio audience of women applauding" loading="lazy">
       </figure>
       <blockquote class="quote-card reveal">
         <p class="kicker kicker-light">The promise</p>
@@ -116,118 +126,166 @@
 <!-- ============ EPISODES ============ -->
 <section class="episodes" id="episodes">
   <div class="section-head reveal">
-    <p class="kicker">Full shows</p>
-    <h2>The episodes</h2>
-    <p class="count-line"><span id="epCount">11</span> conversations and counting</p>
+    <p class="kicker">Watch</p>
+    <h2>Every conversation</h2>
+    <p class="count-line">Organized the way the show organizes them.</p>
   </div>
-  <div class="filter-pills reveal" role="tablist" aria-label="Filter episodes by topic">
-    <button class="pill filter active" data-filter="all" role="tab" aria-selected="true">All</button>
-    <button class="pill filter" data-filter="relationships" role="tab" aria-selected="false">Relationships</button>
-    <button class="pill filter" data-filter="career" role="tab" aria-selected="false">Career</button>
-    <button class="pill filter" data-filter="family" role="tab" aria-selected="false">Family</button>
-    <button class="pill filter" data-filter="self-worth" role="tab" aria-selected="false">Self-Worth</button>
-  </div>
-  <div class="ep-grid" id="epGrid">
 
+  <div class="ep-section" id="full-shows">
+    <div class="ep-section-head reveal">
+      <h3>Full shows</h3>
+      <p>Complete episodes, start to finish.</p>
+    </div>
+    <div class="ep-grid">
     <article class="ep-card reveal" data-topic="self-worth">
-      <button class="ep-thumb" data-video="WuWBiNvv050" aria-label="Play: Welcome To Every Way Woman"><img src="assets/ep-selfworth.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button class="ep-thumb" data-video="WuWBiNvv050" aria-label="Play: Welcome To Every Way Woman">
+        <img src="assets/ep-selfworth.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
       <div class="ep-body">
         <span class="pill pill-topic">Self-Worth</span>
         <h3>Welcome To Every Way Woman</h3>
         <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
       </div>
     </article>
-
-    <article class="ep-card reveal" data-topic="career">
-      <button class="ep-thumb" data-video="Y-qHm-2pc70" aria-label="Play: I Want A Career That I Care About"><img src="assets/ep-career.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Career</span>
-        <h3>I Want A Career That I Care About</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
     <article class="ep-card reveal" data-topic="relationships">
-      <button class="ep-thumb" data-video="KiwKuR-lHtM" aria-label="Play: My EX Controlled My Thoughts"><img src="assets/ep-relationships.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Relationships</span>
-        <h3>My EX Controlled My Thoughts</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
-    <article class="ep-card reveal" data-topic="family">
-      <button class="ep-thumb" data-video="nh4giHqCQ9U" aria-label="Play: I Miss Being A Stay At Home Mom"><img src="assets/ep-selfworth.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Family</span>
-        <h3>I Miss Being A Stay At Home Mom</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
-    <article class="ep-card reveal" data-topic="family">
-      <button class="ep-thumb" data-video="nJXHVzlMKRg" aria-label="Play: Does The Man Rule The House"><img src="assets/ep-relationships.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Family</span>
-        <h3>Does The Man Rule The House</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
-    <article class="ep-card reveal" data-topic="self-worth">
-      <button class="ep-thumb" data-video="AaFGhZzl8O8" aria-label="Play: My Fear To Leave and Move On"><img src="assets/ep-selfworth.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Self-Worth</span>
-        <h3>My Fear To Leave and Move On</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
-    <article class="ep-card reveal" data-topic="self-worth">
-      <button class="ep-thumb" data-video="_ogtbcp62ko" aria-label="Play: Fake Social Media Lives"><img src="assets/ep-career.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Self-Worth</span>
-        <h3>Fake Social Media Lives</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
-    <article class="ep-card reveal" data-topic="self-worth">
-      <button class="ep-thumb" data-video="Roi72z7QRV0" aria-label="Play: Young Girls Making Risky Choices"><img src="assets/ep-selfworth.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <div class="ep-body">
-        <span class="pill pill-topic">Self-Worth</span>
-        <h3>Young Girls Making Risky Choices</h3>
-        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </article>
-
-    <article class="ep-card reveal" data-topic="relationships">
-      <button class="ep-thumb" data-video="oWMJK2Ht62c" aria-label="Play: I'm Ready To Get Married"><img src="assets/ep-relationships.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button class="ep-thumb" data-video="oWMJK2Ht62c" aria-label="Play: I'm Ready To Get Married">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
       <div class="ep-body">
         <span class="pill pill-topic">Relationships</span>
         <h3>I'm Ready To Get Married</h3>
         <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
       </div>
     </article>
-
     <article class="ep-card reveal" data-topic="relationships">
-      <button class="ep-thumb" data-video="QCjoXttxlQA" aria-label="Play: Dating Was Confusing To Me"><img src="assets/ep-relationships.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button class="ep-thumb" data-video="QCjoXttxlQA" aria-label="Play: Dating Was Confusing To Me">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
       <div class="ep-body">
         <span class="pill pill-topic">Relationships</span>
         <h3>Dating Was Confusing To Me</h3>
         <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
       </div>
     </article>
+    </div>
+  </div>
 
+  <div class="ep-section" id="open-dialogue">
+    <div class="ep-section-head reveal">
+      <h3>Open dialogue</h3>
+      <p>Real talk on the topics that matter.</p>
+    </div>
+    <div class="ep-grid">
+    <article class="ep-card reveal" data-topic="career">
+      <button class="ep-thumb" data-video="Y-qHm-2pc70" aria-label="Play: I Want A Career That I Care About">
+        <img src="assets/ep-career.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Career</span>
+        <h3>I Want A Career That I Care About</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
     <article class="ep-card reveal" data-topic="relationships">
-      <button class="ep-thumb" data-video="Jy9cckW6jiw" aria-label="Play: Thank Goodness You Dumped His Ass"><img src="assets/ep-relationships.jpg?v=202610061854" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button class="ep-thumb" data-video="KiwKuR-lHtM" aria-label="Play: My EX Controlled My Thoughts">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Relationships</span>
+        <h3>My EX Controlled My Thoughts</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="family">
+      <button class="ep-thumb" data-video="nh4giHqCQ9U" aria-label="Play: I Miss Being A Stay At Home Mom">
+        <img src="assets/ep-selfworth.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Family</span>
+        <h3>I Miss Being A Stay At Home Mom</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="family">
+      <button class="ep-thumb" data-video="nJXHVzlMKRg" aria-label="Play: Does The Man Rule The House">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Family</span>
+        <h3>Does The Man Rule The House</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="self-worth">
+      <button class="ep-thumb" data-video="AaFGhZzl8O8" aria-label="Play: My Fear To Leave and Move On">
+        <img src="assets/ep-selfworth.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Self-Worth</span>
+        <h3>My Fear To Leave and Move On</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="self-worth">
+      <button class="ep-thumb" data-video="_ogtbcp62ko" aria-label="Play: Fake Social Media Lives">
+        <img src="assets/ep-career.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Self-Worth</span>
+        <h3>Fake Social Media Lives</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="self-worth">
+      <button class="ep-thumb" data-video="Roi72z7QRV0" aria-label="Play: Young Girls Making Risky Choices">
+        <img src="assets/ep-selfworth.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Self-Worth</span>
+        <h3>Young Girls Making Risky Choices</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    </div>
+  </div>
+
+  <div class="ep-section" id="relationships">
+    <div class="ep-section-head reveal">
+      <h3>Relationships</h3>
+      <p>Love, dating, and everything after.</p>
+    </div>
+    <div class="ep-grid">
+    <article class="ep-card reveal" data-topic="relationships">
+      <button class="ep-thumb" data-video="oWMJK2Ht62c" aria-label="Play: I'm Ready To Get Married">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Relationships</span>
+        <h3>I'm Ready To Get Married</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="relationships">
+      <button class="ep-thumb" data-video="QCjoXttxlQA" aria-label="Play: Dating Was Confusing To Me">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
+      <div class="ep-body">
+        <span class="pill pill-topic">Relationships</span>
+        <h3>Dating Was Confusing To Me</h3>
+        <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </article>
+    <article class="ep-card reveal" data-topic="relationships">
+      <button class="ep-thumb" data-video="Jy9cckW6jiw" aria-label="Play: Thank Goodness You Dumped His Ass">
+        <img src="assets/ep-relationships.jpg?v=202610061905" alt="" loading="lazy"><span class="thumb-play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      </button>
       <div class="ep-body">
         <span class="pill pill-topic">Relationships</span>
         <h3>Thank Goodness You Dumped His Ass</h3>
         <a class="ep-link" href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">Watch on YouTube</a>
       </div>
     </article>
-
+    </div>
   </div>
 </section>
 
@@ -265,7 +323,7 @@
     </div>
     <nav aria-label="Footer">
       <a href="#home">Home</a>
-      <a href="#open-dialogue">Open Dialogue</a>
+      <a href="#story">Open Dialogue</a>
       <a href="#episodes">Episodes</a>
       <a href="https://www.youtube.com/@everywaywoman" target="_blank" rel="noopener">YouTube</a>
     </nav>
@@ -280,7 +338,7 @@
     <p class="lightbox-title" id="lightboxTitle">Welcome To Every Way Woman</p>
     <button class="lightbox-close" data-close-video aria-label="Close video">✕</button>
     <button class="video-facade" id="videoFacade" aria-label="Play video">
-      <img src="assets/ep-selfworth.jpg?v=202610061854" alt="Three generations of women laughing together" loading="lazy">
+      <img src="assets/ep-selfworth.jpg?v=202610061905" alt="Three generations of women laughing together" loading="lazy">
       <span class="facade-play"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
     </button>
   </div>
@@ -288,6 +346,6 @@
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-<script src="script.js?v=202610061854"></script>
+<script src="script.js?v=202610061905"></script>
 </body>
 </html>
