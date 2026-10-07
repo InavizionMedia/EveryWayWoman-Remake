@@ -10,6 +10,7 @@
     var y = window.scrollY || window.pageYOffset;
     header.classList.toggle("scrolled", y > 24);
     backToTop.classList.toggle("show", y > 600);
+    if (heroEl) document.body.classList.toggle("past-hero", y > heroEl.offsetHeight - 140);
   }
   window.addEventListener("scroll", onScroll, {passive:true});
   onScroll();
