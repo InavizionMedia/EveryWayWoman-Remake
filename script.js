@@ -74,15 +74,27 @@
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("menuToggle");
   var mobileNav = document.getElementById("mobileNav");
+  var epToggle = document.getElementById("epToggle");
+  var epGroup = document.getElementById("epGroup");
   function setMenu(open){
     toggle.classList.toggle("open", open);
     mobileNav.classList.toggle("open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.body.style.overflow = open ? "hidden" : "";
+    if (!open) {
+      epToggle.setAttribute("aria-expanded", "false");
+      epGroup.classList.remove("expanded");
+    }
   }
   toggle.addEventListener("click", function(){
     setMenu(!mobileNav.classList.contains("open"));
+  });
+  epToggle.addEventListener("click", function(e){
+    e.stopPropagation();
+    var exp = epToggle.getAttribute("aria-expanded") === "true";
+    epToggle.setAttribute("aria-expanded", exp ? "false" : "true");
+    epGroup.classList.toggle("expanded", !exp);
   });
   mobileNav.querySelectorAll("a").forEach(function(a){
     a.addEventListener("click", function(){ setMenu(false); });
