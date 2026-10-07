@@ -202,7 +202,7 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
 .tchip:hover{border-color:var(--cocoa)}
 .tchip.is-active{background:linear-gradient(135deg,#2e1c14,#8a5f26);border-color:transparent;color:var(--ivory)}
 .ep-card[hidden],.ep-section[hidden]{display:none!important}
-section[id]{scroll-margin-top:84px}
+section[id],.ep-section[id]{scroll-margin-top:100px}
 /* per-section show more */
 .ep-section.has-more:not(.expanded):not(.filtering) .ep-card.is-extra{display:none}
 .show-more{display:flex;align-items:center;gap:.55rem;margin:1.75rem auto 0;background:none;border:1px solid rgba(58,37,33,.3);border-radius:999px;padding:.7rem 1.5rem;font-family:var(--sans);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa);cursor:pointer;transition:border-color .25s,background .25s}
