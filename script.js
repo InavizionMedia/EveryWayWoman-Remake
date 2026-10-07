@@ -168,34 +168,69 @@
   window.addEventListener("scroll", spy, {passive:true});
   spy();
 
-  /* ---------- video lightbox (player loads on open, ivory panel) ---------- */
+  /* ---------- video lightbox (YT API player, branded end card) ---------- */
   var box = document.getElementById("videoBox");
   var titleEl = document.getElementById("lightboxTitle");
   var panel = box.querySelector(".lightbox-panel");
+  var videoWrap = document.getElementById("videoWrap");
+  var endcard = document.getElementById("videoEndcard");
+  var replayBtn = document.getElementById("endcardReplay");
   var FEATURED_ID = "WuWBiNvv050";
   var FEATURED_TITLE = "Welcome To Every Way Woman";
-  var currentId = FEATURED_ID;
   var currentTitle = FEATURED_TITLE;
+  var player = null;
+  var ytReady = false;
+  var ytQueue = [];
+  // YouTube IFrame API — lets us detect ENDED and show our own end card
+  window.onYouTubeIframeAPIReady = function(){
+    ytReady = true;
+    ytQueue.forEach(function(fn){ fn(); });
+    ytQueue = [];
+  };
+  (function(){
+    var s = document.createElement("script");
+    s.src = "https://www.youtube.com/iframe_api";
+    s.async = true;
+    document.head.appendChild(s);
+  })();
+  function onPlayerState(e){
+    if (window.YT && e.data === YT.PlayerState.ENDED) endcard.hidden = false;
+  }
+  function buildPlayer(id){
+    var slot = document.createElement("div");
+    videoWrap.insertBefore(slot, endcard);
+    player = new YT.Player(slot, {
+      videoId: id,
+      playerVars: {autoplay:1, rel:0, modestbranding:1, iv_load_policy:3, playsinline:1, cc_load_policy:0},
+      events: {onStateChange: onPlayerState}
+    });
+  }
+  function teardownPlayer(){
+    if (player) { try { player.destroy(); } catch(err){} player = null; }
+    Array.prototype.slice.call(videoWrap.children).forEach(function(ch){
+      if (ch !== endcard) videoWrap.removeChild(ch);
+    });
+    endcard.hidden = true;
+  }
   function openVideo(id, title){
-    currentId = id;
+    teardownPlayer();
     currentTitle = title || FEATURED_TITLE;
     titleEl.textContent = currentTitle;
     box.hidden = false;
     document.body.style.overflow = "hidden";
     // player loads immediately on open — no intermediate step
-    var iframe = document.createElement("iframe");
-    iframe.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&cc_load_policy=0";
-    iframe.title = currentTitle;
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-    panel.appendChild(iframe);
+    if (ytReady && window.YT) buildPlayer(id);
+    else ytQueue.push(function(){ if (!box.hidden && window.YT) buildPlayer(id); });
   }
   function closeVideo(){
     box.hidden = true;
     document.body.style.overflow = "";
-    var iframe = panel.querySelector("iframe");
-    if (iframe) iframe.remove();
+    teardownPlayer();
   }
+  replayBtn.addEventListener("click", function(){
+    endcard.hidden = true;
+    if (player) { player.seekTo(0); player.playVideo(); }
+  });
   function closeMobileMenuIfOpen(){
     if (mobileNav.classList.contains("open")) setMenu(false);
   }
