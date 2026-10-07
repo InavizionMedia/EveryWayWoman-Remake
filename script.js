@@ -19,6 +19,58 @@
     else { window.scrollTo({top:0, behavior:"smooth"}); }
   });
 
+  /* ---------- hero carousel ---------- */
+  var heroEl = document.querySelector(".hero");
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".hero-slide"));
+  var dots = Array.prototype.slice.call(document.querySelectorAll(".hero-dot"));
+  var heroTitle = document.getElementById("heroTitle");
+  var heroSub = document.getElementById("heroSub");
+  var heroCopy = document.querySelector(".hero-copy");
+  var slideCopy = [
+    {t: "Real talk.<br><em>Every way.</em>", s: "Daytime talk for women — news, real stories, and great conversations."},
+    {t: "Pull up<br><em>a chair.</em>", s: "From our studio to your screen — the mics are hot and the conversation is already going."},
+    {t: "Real women.<br><em>Real stories.</em>", s: "Hosts and guests keeping it honest about love, work, family, and everything after."}
+  ];
+  var cur = 0, timer = null;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function go(n){
+    cur = ((n % slides.length) + slides.length) % slides.length;
+    slides.forEach(function(s,i){ s.classList.toggle("is-active", i === cur); });
+    dots.forEach(function(d,i){
+      d.classList.toggle("is-active", i === cur);
+      d.setAttribute("aria-selected", i === cur ? "true" : "false");
+    });
+    function swap(){
+      heroTitle.innerHTML = slideCopy[cur].t;
+      heroSub.textContent = slideCopy[cur].s;
+      heroCopy.classList.remove("swap");
+    }
+    if (reduceMotion) { swap(); return; }
+    heroCopy.classList.add("swap");
+    setTimeout(swap, 260);
+  }
+  function start(){ if (!reduceMotion){ stop(); timer = setInterval(function(){ go(cur + 1); }, 7000); } }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  dots.forEach(function(d){
+    d.addEventListener("click", function(){ go(parseInt(d.getAttribute("data-slide"), 10)); start(); });
+  });
+  var prevBtn = document.querySelector(".hero-prev");
+  var nextBtn = document.querySelector(".hero-next");
+  if (prevBtn) prevBtn.addEventListener("click", function(){ go(cur - 1); start(); });
+  if (nextBtn) nextBtn.addEventListener("click", function(){ go(cur + 1); start(); });
+  heroEl.addEventListener("mouseenter", stop);
+  heroEl.addEventListener("mouseleave", start);
+  var touchX = null;
+  heroEl.addEventListener("touchstart", function(e){ touchX = e.touches[0].clientX; stop(); }, {passive:true});
+  heroEl.addEventListener("touchend", function(e){
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+    touchX = null;
+    start();
+  }, {passive:true});
+  start();
+
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("menuToggle");
   var mobileNav = document.getElementById("mobileNav");
