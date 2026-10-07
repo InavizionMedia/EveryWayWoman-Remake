@@ -168,32 +168,33 @@
   window.addEventListener("scroll", spy, {passive:true});
   spy();
 
-  /* ---------- video lightbox (click-to-load facade, ivory panel) ---------- */
+  /* ---------- video lightbox (player loads on open, ivory panel) ---------- */
   var box = document.getElementById("videoBox");
-  var facade = document.getElementById("videoFacade");
-  var facadeImg = facade.querySelector("img");
-  var facadeDefaultSrc = facadeImg.getAttribute("src");
   var titleEl = document.getElementById("lightboxTitle");
   var panel = box.querySelector(".lightbox-panel");
   var FEATURED_ID = "WuWBiNvv050";
   var FEATURED_TITLE = "Welcome To Every Way Woman";
   var currentId = FEATURED_ID;
   var currentTitle = FEATURED_TITLE;
-  function openVideo(id, title, thumbSrc){
+  function openVideo(id, title){
     currentId = id;
     currentTitle = title || FEATURED_TITLE;
     titleEl.textContent = currentTitle;
-    facadeImg.setAttribute("src", thumbSrc || facadeDefaultSrc);
-    facadeImg.setAttribute("alt", currentTitle);
     box.hidden = false;
     document.body.style.overflow = "hidden";
+    // player loads immediately on open — no intermediate step
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&cc_load_policy=0";
+    iframe.title = currentTitle;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    panel.appendChild(iframe);
   }
   function closeVideo(){
     box.hidden = true;
     document.body.style.overflow = "";
-    // unload player, restore facade
     var iframe = panel.querySelector("iframe");
-    if (iframe) { iframe.remove(); facade.style.display = ""; }
+    if (iframe) iframe.remove();
   }
   function closeMobileMenuIfOpen(){
     if (mobileNav.classList.contains("open")) setMenu(false);
@@ -201,7 +202,7 @@
   document.querySelectorAll("[data-open-video]").forEach(function(b){
     b.addEventListener("click", function(){
       closeMobileMenuIfOpen();
-      openVideo(FEATURED_ID, FEATURED_TITLE, facadeDefaultSrc);
+      openVideo(FEATURED_ID, FEATURED_TITLE);
     });
   });
   document.querySelectorAll(".ep-thumb").forEach(function(btn){
@@ -209,18 +210,8 @@
       closeMobileMenuIfOpen();
       var card = btn.closest(".ep-card");
       var t = card ? card.querySelector("h3").textContent : FEATURED_TITLE;
-      var img = btn.querySelector("img");
-      openVideo(btn.getAttribute("data-video"), t, img ? img.getAttribute("src") : null);
+      openVideo(btn.getAttribute("data-video"), t);
     });
-  });
-  facade.addEventListener("click", function(){
-    var iframe = document.createElement("iframe");
-    iframe.src = "https://www.youtube.com/embed/" + currentId + "?autoplay=1&rel=0";
-    iframe.title = currentTitle;
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-    facade.style.display = "none";
-    panel.appendChild(iframe);
   });
   box.querySelectorAll("[data-close-video]").forEach(function(b){
     b.addEventListener("click", closeVideo);
