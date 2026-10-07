@@ -84,6 +84,12 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .ab-item:hover{background:var(--cream)}
 .ab-cta{flex:1.2;background:var(--cocoa);color:var(--ivory);border:0;font-family:var(--sans);font-weight:600;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:1.15rem .8rem;transition:background .25s}
 .ab-cta:hover{background:var(--berry)}
+@media(max-width:719px){
+  .action-bar{flex-wrap:wrap;transform:translate(-50%,50%)}
+  .ab-item{flex:1 1 40%;padding:1rem .4rem;font-size:.72rem}
+  .ab-item:nth-child(2){border-right:0}
+  .ab-cta{flex:1 1 100%;padding:1rem}
+}
 
 /* ---------- story ---------- */
 .story{padding:7rem 1.25rem 5rem;max-width:1240px;margin:0 auto}
