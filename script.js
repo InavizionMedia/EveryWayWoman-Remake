@@ -196,13 +196,17 @@
   function onPlayerState(e){
     if (window.YT && e.data === YT.PlayerState.ENDED) endcard.hidden = false;
   }
+  function onPlayerReady(e){
+    // belt-and-suspenders: guarantee the fullscreen button works everywhere
+    try { e.target.getIframe().setAttribute("allowfullscreen", ""); } catch(err){}
+  }
   function buildPlayer(id){
     var slot = document.createElement("div");
     videoWrap.insertBefore(slot, endcard);
     player = new YT.Player(slot, {
       videoId: id,
       playerVars: {autoplay:1, rel:0, modestbranding:1, iv_load_policy:3, playsinline:1, cc_load_policy:0},
-      events: {onStateChange: onPlayerState}
+      events: {onReady: onPlayerReady, onStateChange: onPlayerState}
     });
   }
   function teardownPlayer(){
