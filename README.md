@@ -14,7 +14,14 @@
 
 ## Screenshots
 
-*Build screenshots land here on the first build pass.*
+![Hero — cinematic full-bleed studio with glass featured-episode card](media/hero.jpg)
+*Cinematic hero: oversized serif headline, floating glass featured-episode card, action bar overlapping the seam.*
+
+![Episode library with topic filters](media/screenshot-episodes.jpg)
+*Episode library: real episode titles, topic filter pills, warm editorial cards.*
+
+![Mobile — 390px](media/screenshot-mobile.jpg)
+*390px mobile: stacked hero, wrapped action bar, single-column episode cards.*
 
 ## What's inside
 
