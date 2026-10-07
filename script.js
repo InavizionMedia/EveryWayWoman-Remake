@@ -38,7 +38,8 @@
 
   /* ---------- scroll-spy ---------- */
   var spyLinks = document.querySelectorAll("[data-spy]");
-  var sections = ["home","open-dialogue","episodes","about"].map(function(id){
+  var EP_SECTIONS = ["full-shows", "open-dialogue", "relationships"];
+  var sections = ["home","story","full-shows","open-dialogue","relationships","about"].map(function(id){
     return document.getElementById(id);
   }).filter(Boolean);
   function spy(){
@@ -46,7 +47,9 @@
     var current = "home";
     sections.forEach(function(s){ if (s.offsetTop <= pos) current = s.id; });
     spyLinks.forEach(function(a){
-      a.classList.toggle("active", a.getAttribute("data-spy") === current);
+      var key = a.getAttribute("data-spy");
+      var on = key === current || (key === "episodes" && EP_SECTIONS.indexOf(current) !== -1);
+      a.classList.toggle("active", on);
     });
   }
   window.addEventListener("scroll", spy, {passive:true});
@@ -111,39 +114,6 @@
   });
   document.addEventListener("keydown", function(e){
     if (e.key === "Escape" && !box.hidden) closeVideo();
-  });
-
-  /* ---------- episode filters ---------- */
-  var filters = document.querySelectorAll(".filter");
-  var cards = document.querySelectorAll(".ep-card");
-  var epCount = document.getElementById("epCount");
-  function applyFilter(topic){
-    var n = 0;
-    cards.forEach(function(c){
-      var show = topic === "all" || c.getAttribute("data-topic") === topic;
-      c.classList.toggle("hide", !show);
-      if (show) n++;
-    });
-    epCount.textContent = n;
-  }
-  filters.forEach(function(f){
-    f.addEventListener("click", function(){
-      filters.forEach(function(x){
-        x.classList.remove("active");
-        x.setAttribute("aria-selected","false");
-      });
-      f.classList.add("active");
-      f.setAttribute("aria-selected","true");
-      applyFilter(f.getAttribute("data-filter"));
-    });
-  });
-  // deep-link from the action bar "Topics" button
-  document.querySelectorAll("[data-topic-jump]").forEach(function(a){
-    a.addEventListener("click", function(){
-      var t = a.getAttribute("data-topic-jump");
-      var btn = document.querySelector('.filter[data-filter="'+t+'"]');
-      if (btn) btn.click();
-    });
   });
 
   /* ---------- reveal on scroll ---------- */
