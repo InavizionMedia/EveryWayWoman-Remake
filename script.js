@@ -166,6 +166,26 @@
     });
   });
 
+  /* ---------- espresso dark theme toggle (v6 experiment) ---------- */
+  var themeBtn = document.getElementById("themeToggle");
+  function setTheme(t){
+    document.documentElement.setAttribute("data-theme", t);
+    if (themeBtn) {
+      themeBtn.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
+      themeBtn.setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    }
+    try { localStorage.setItem("eww-theme", t); } catch(e){}
+  }
+  if (themeBtn) {
+    try {
+      var savedTheme = localStorage.getItem("eww-theme");
+      if (savedTheme === "dark" || savedTheme === "light") setTheme(savedTheme);
+    } catch(e){}
+    themeBtn.addEventListener("click", function(){
+      setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    });
+  }
+
   /* ---------- featured card accordion (mobile) ---------- */
   var fToggle = document.getElementById("featuredToggle");
   if (fToggle) {
