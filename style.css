@@ -28,7 +28,7 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .site-header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s;
   background:linear-gradient(180deg,rgba(250,245,236,.8) 0%,rgba(250,245,236,.35) 55%,rgba(250,245,236,0) 100%)}
 .site-header.scrolled{background:rgba(250,245,236,.92);backdrop-filter:blur(14px);box-shadow:0 8px 30px -12px rgba(58,37,33,.25)}
-.header-inner{max-width:1240px;margin:0 auto;padding:.9rem 1.25rem;display:flex;align-items:center;gap:1.5rem}
+.header-inner{max-width:1240px;margin:0 auto;padding:.9rem 1.25rem;display:flex;align-items:center;gap:1.5rem;position:relative;z-index:60}
 .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
 .brand-script{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--cocoa);text-shadow:0 1px 12px rgba(250,245,236,.9),0 0 3px rgba(250,245,236,.9)}
 .brand-sub{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:.25rem;text-shadow:0 1px 10px rgba(250,245,236,.9)}
@@ -58,16 +58,16 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .menu-toggle.open span:nth-child(2){opacity:0}
 .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-nav{position:fixed;inset:0;background:var(--paper);padding:5.5rem 2rem 2.5rem;display:flex;flex-direction:column;gap:.4rem;transform:translateX(102%);transition:transform .45s cubic-bezier(.22,.9,.3,1);z-index:49;overflow-y:auto}
+.mobile-nav{position:fixed;inset:0;background:var(--cocoa);color:var(--ivory);padding:5.5rem 2rem 2.5rem;display:flex;flex-direction:column;gap:.4rem;transform:translateX(102%);transition:transform .45s cubic-bezier(.22,.9,.3,1);z-index:49;overflow-y:auto}
 .mobile-nav.open{transform:none}
-.mobile-nav a{text-decoration:none;font-size:1.15rem;padding:.7rem 0;border-bottom:1px solid var(--cream);display:flex;align-items:baseline;gap:1rem;opacity:0;transform:translateX(18px);transition:opacity .35s,transform .35s}
+.mobile-nav a{text-decoration:none;font-size:1.15rem;color:var(--ivory);padding:.7rem 0;border-bottom:1px solid rgba(250,245,236,.14);display:flex;align-items:baseline;gap:1rem;opacity:0;transform:translateX(18px);transition:opacity .35s,transform .35s}
 .mobile-nav.open a{opacity:1;transform:none}
 .mobile-nav.open>a:nth-child(1){transition-delay:.08s}
 .mobile-nav.open>a:nth-child(3){transition-delay:.2s}
 .mobile-nav a i{font-style:normal;font-family:var(--serif);color:var(--gold);font-size:.95rem;min-width:2ch}
 .mobile-group{opacity:0;transform:translateX(18px);transition:opacity .35s,transform .35s}
 .mobile-nav.open .mobile-group{opacity:1;transform:none;transition-delay:.14s}
-.mobile-row{display:flex;align-items:center;border-bottom:1px solid var(--cream)}
+.mobile-row{display:flex;align-items:center;border-bottom:1px solid rgba(250,245,236,.14)}
 .mobile-row a{flex:1;border-bottom:0;transition-delay:0s}
 .mobile-toggle{background:none;border:0;color:var(--gold);cursor:pointer;padding:.7rem .5rem;display:flex;align-items:center}
 .mobile-toggle svg{transition:transform .3s}
@@ -75,9 +75,15 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .mobile-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
 .mobile-group.expanded .mobile-sub{grid-template-rows:1fr}
 .mobile-sub-inner{overflow:hidden;min-height:0}
-.mobile-sub a{font-size:.95rem;padding:.5rem 0 .5rem 3rem;border-bottom:0;color:var(--muted)}
+.mobile-sub a{font-size:.95rem;padding:.5rem 0 .5rem 3rem;border-bottom:0;color:rgba(250,245,236,.75)}
 .mobile-sub a::before{content:"—";color:var(--gold);margin-right:.6rem}
-.mobile-watch{margin-top:auto;align-self:flex-start}
+.mobile-nav .mobile-watch{margin-top:auto;align-self:flex-start;background:var(--gold);color:var(--cocoa)}
+/* header inverts while the cocoa menu is open */
+body.menu-open .site-header{background:transparent;box-shadow:none;backdrop-filter:none}
+body.menu-open .brand-script{color:var(--ivory)}
+body.menu-open .brand-sub{color:var(--gold-soft)}
+body.menu-open .menu-toggle span{background:var(--ivory)}
+body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--cocoa)}
