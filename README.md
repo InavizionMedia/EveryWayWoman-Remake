@@ -14,16 +14,16 @@
 
 ## Screenshots
 
-![Hero — cinematic full-bleed studio with glass featured-episode card](media/hero.jpg?v=20261007a)
+![Hero — cinematic full-bleed studio with glass featured-episode card](media/hero.jpg?v=20261007b)
 *Cinematic hero: oversized serif headline, floating glass featured-episode card, action bar overlapping the seam.*
 
-![Episode library with topic filters](media/screenshot-episodes.jpg?v=20261007a)
+![Episode library with topic filters](media/screenshot-episodes.jpg?v=20261007b)
 *Episode library: real episode titles, topic filter pills, warm editorial cards.*
 
-![Mobile — 390px](media/screenshot-mobile.jpg?v=20261007a)
+![Mobile — 390px](media/screenshot-mobile.jpg?v=20261007b)
 *390px mobile: stacked hero, wrapped action bar, single-column episode cards.*
 
-![Dark theme — espresso register](media/hero-dark.jpg?v=20261007a)
+![Dark theme — espresso register](media/hero-dark.jpg?v=20261007b)
 *Espresso dark theme: same layout, inverted register, persisted header toggle.*
 
 ## What's inside
