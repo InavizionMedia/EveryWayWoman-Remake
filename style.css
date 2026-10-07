@@ -234,9 +234,9 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 .ep-thumb{display:block;position:relative;width:100%;border:0;padding:0;background:none;cursor:pointer;overflow:hidden}
 .ep-thumb img{transition:transform .4s ease}
 .ep-card:hover .ep-thumb img{transform:scale(1.04)}
-.thumb-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;background:rgba(42,27,23,.28)}
-.ep-thumb:hover .thumb-play,.ep-thumb:focus-visible .thumb-play{opacity:1}
-.thumb-play svg{color:var(--ivory);background:rgba(195,154,74,.92);border-radius:50%;padding:14px;width:56px;height:56px}
+.thumb-play{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:10px;opacity:1;transition:background .3s;background:rgba(42,27,23,.18);pointer-events:none}
+.ep-thumb:hover .thumb-play,.ep-thumb:focus-visible .thumb-play{background:rgba(42,27,23,0)}
+.thumb-play svg{color:var(--ivory);background:rgba(195,154,74,.92);border-radius:50%;padding:10px;width:38px;height:38px;box-shadow:0 6px 18px rgba(42,27,23,.45)}
 .ep-body{padding:1.3rem 1.3rem 1.5rem}
 .pill-topic{font-size:.66rem;background:var(--cream);border-color:transparent;color:var(--berry);margin-bottom:.8rem}
 .ep-body h3{font-size:1.3rem;margin-bottom:.9rem;line-height:1.25}
