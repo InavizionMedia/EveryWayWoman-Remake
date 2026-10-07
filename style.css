@@ -110,9 +110,9 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,27,23,.28) 0%,rgba(42,27,23,0) 34%,rgba(42,27,23,.12) 60%,rgba(42,27,23,.72) 100%)}
 .hero-badge{position:absolute;top:5.5rem;left:1.25rem;z-index:2;background:rgba(250,245,236,.85);backdrop-filter:blur(8px)}
 .hero-copy{position:relative;z-index:2;padding:0 1.25rem 7.5rem;max-width:1240px;width:100%;margin:0 auto}
-.hero-copy h1{color:var(--ivory);font-size:clamp(3rem,12vw,7.5rem);font-weight:900;letter-spacing:-.01em;text-shadow:0 4px 40px rgba(42,27,23,.5)}
+.hero-copy h1{color:var(--ivory);font-size:clamp(3rem,12vw,7.5rem);font-weight:900;letter-spacing:-.01em;text-shadow:0 4px 40px rgba(42,27,23,.5),0 2px 10px rgba(42,27,23,.55),0 1px 3px rgba(42,27,23,.5)}
 .hero-copy h1 em{font-style:italic;font-weight:500;color:var(--gold-soft)}
-.hero-copy p{color:var(--ivory);opacity:.92;margin-top:1rem;font-size:1.05rem;max-width:34ch}
+.hero-copy p{color:var(--ivory);opacity:.92;margin-top:1rem;font-size:1.05rem;max-width:34ch;text-shadow:0 1px 12px rgba(42,27,23,.65),0 1px 3px rgba(42,27,23,.5)}
 
 /* floating glass featured card */
 .featured-card{position:absolute;z-index:2;top:9.5rem;right:1.25rem;width:min(300px,72vw);padding:1.4rem 1.35rem;border-radius:18px;
@@ -124,7 +124,8 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
   background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 45%,transparent 60%)}
 .featured-head{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:left;display:flex;align-items:center;gap:.75rem;width:100%;cursor:default}
 .fh-text{flex:1;min-width:0}
-.featured-title{display:block;font-family:var(--serif);font-weight:700;line-height:1.08;font-size:1.45rem;margin:.2rem 0 .8rem}
+.featured-title{display:block;font-family:var(--serif);font-weight:700;line-height:1.08;font-size:1.45rem;margin:.2rem 0 .8rem;text-shadow:0 2px 14px rgba(43,26,20,.55),0 1px 4px rgba(43,26,20,.5)}
+.featured-card .kicker{text-shadow:0 1px 8px rgba(43,26,20,.65)}
 .f-chev{flex:none;color:var(--gold);display:none}
 .featured-body{display:block}
 .featured-card .pill-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem}
