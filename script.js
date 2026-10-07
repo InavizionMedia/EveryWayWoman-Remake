@@ -109,10 +109,30 @@
       setMenu(false);
       if (!target) return;
       setTimeout(function(){
-        var head = target.querySelector(".ep-section-head") || target;
-        var y = head.getBoundingClientRect().top + window.pageYOffset - 100;
+        function headY(){
+          var head = target.querySelector(".ep-section-head") || target;
+          return head.getBoundingClientRect().top + window.pageYOffset - 100;
+        }
+        var y = headY();
         if (reduceMotion) { window.scrollTo(0, y); }
         else { window.scrollTo({top: y, behavior: "smooth"}); }
+        /* first-tap correction: webfonts can shift the layout after the first
+           measurement, landing the title under the header. Re-aim after the
+           smooth scroll lands and fonts settle. */
+        var lastY = y, tries = 0;
+        function correct(){
+          if (tries++ > 8) return;
+          if (Math.abs(window.pageYOffset - lastY) > 8) { setTimeout(correct, 500); return; }
+          var nowY = headY();
+          if (Math.abs(nowY - lastY) < 2) return;
+          lastY = nowY;
+          window.scrollTo(0, nowY);
+          setTimeout(correct, 500);
+        }
+        setTimeout(correct, 1000);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function(){ setTimeout(correct, 300); });
+        }
       }, 80);
     });
   });
