@@ -137,6 +137,35 @@
     });
   });
 
+  /* action-bar anchors: deterministic JS scroll. Native in-page anchors land
+     inconsistently on iOS (same class of issue as the mobile submenu) — measure
+     the target at click time and re-aim after the scroll settles. */
+  document.querySelectorAll('.action-bar a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var target = document.querySelector(a.getAttribute("href"));
+      if (!target) return;
+      function targetY(){
+        return Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - 100);
+      }
+      var y = targetY();
+      if (reduceMotion) { window.scrollTo(0, y); }
+      else { window.scrollTo({top: y, behavior: "smooth"}); }
+      var lastY = y, tries = 0;
+      function correct(){
+        if (tries++ > 10) return;
+        if (Math.abs(window.pageYOffset - lastY) > 8) { setTimeout(correct, 600); return; }
+        var nowY = targetY();
+        if (Math.abs(nowY - lastY) < 2) return;
+        lastY = nowY;
+        window.scrollTo(0, nowY);
+        setTimeout(correct, 600);
+      }
+      setTimeout(correct, 1200);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ setTimeout(correct, 300); }); }
+    });
+  });
+
   /* ---------- featured card accordion (mobile) ---------- */
   var fToggle = document.getElementById("featuredToggle");
   if (fToggle) {
