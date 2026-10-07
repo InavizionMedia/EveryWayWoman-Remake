@@ -156,6 +156,7 @@ body.menu-open .menu-toggle::before{display:none}
   .action-bar{flex-wrap:wrap;transform:translate(-50%,50%)}
   .ab-item{flex:1 1 40%;padding:1rem .4rem;font-size:.72rem}
   .ab-item:nth-child(2){border-right:0}
+  .ab-item:nth-child(-n+2){border-bottom:1px solid var(--cream)}
   .ab-cta{flex:1 1 100%;padding:1rem}
 }
 
@@ -387,9 +388,9 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 [data-theme="dark"] .pill-topic{
   background:linear-gradient(135deg,rgba(216,169,79,.12),rgba(216,169,79,.04));
   border-color:rgba(216,169,79,.25);color:var(--gold-soft)}
-/* v6 note 4 (Jon): horizontal divider in the mobile 2x2 action bar */
+/* v6 note 4 (Jon): horizontal divider in the mobile 2x2 action bar — both themes */
 @media(max-width:719px){
-  [data-theme="dark"] .ab-item:nth-child(-n+2){border-bottom:1px solid rgba(216,169,79,.14)}
+  [data-theme="dark"] .ab-item:nth-child(-n+2){border-bottom-color:rgba(216,169,79,.14)}
 }
 /* hero copy stays light in both themes (it sits on dark photography) */
 [data-theme="dark"] .hero-copy h1,[data-theme="dark"] .hero-copy p{color:#f6efe2}
