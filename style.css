@@ -296,7 +296,8 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 .video-endcard{position:absolute;inset:0;z-index:2}
 .video-endcard[hidden]{display:none}
 .video-endcard img{width:100%;height:100%;object-fit:cover;display:block}
-.endcard-replay{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;border:0;background:rgba(195,154,74,.92);color:var(--ivory);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s}
+.video-endcard::after{content:"";position:absolute;inset:0;background:rgba(24,14,12,.5);pointer-events:none}
+.endcard-replay{position:absolute;inset:0;margin:auto;z-index:1;width:84px;height:84px;border-radius:50%;border:0;background:rgba(195,154,74,.92);color:var(--ivory);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s}
 .endcard-replay:hover{transform:scale(1.08)}
 @media(max-width:759px){
   .lightbox{padding:.75rem}
