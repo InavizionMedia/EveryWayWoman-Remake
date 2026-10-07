@@ -75,7 +75,7 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .mobile-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 .mobile-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
 .mobile-group.expanded .mobile-sub{grid-template-rows:1fr}
-.mobile-sub-inner{overflow:hidden;min-height:0}
+.mobile-sub-inner{overflow:hidden;min-height:0;padding-top:.65rem}
 .mobile-sub a{font-size:.95rem;padding:.5rem 0 .5rem 3rem;border-bottom:0;color:rgba(250,245,236,.75)}
 .mobile-sub a::before{content:"—";color:var(--gold);margin-right:.6rem}
 .mobile-nav .mobile-watch{margin-top:auto;align-self:flex-start;background:var(--gold);color:var(--cocoa)}
