@@ -52,12 +52,23 @@
   window.addEventListener("scroll", spy, {passive:true});
   spy();
 
-  /* ---------- video lightbox (click-to-load facade) ---------- */
+  /* ---------- video lightbox (click-to-load facade, ivory panel) ---------- */
   var box = document.getElementById("videoBox");
   var facade = document.getElementById("videoFacade");
+  var facadeImg = facade.querySelector("img");
+  var facadeDefaultSrc = facadeImg.getAttribute("src");
+  var titleEl = document.getElementById("lightboxTitle");
   var panel = box.querySelector(".lightbox-panel");
-  var YT_ID = "WuWBiNvv050";
-  function openVideo(){
+  var FEATURED_ID = "WuWBiNvv050";
+  var FEATURED_TITLE = "Welcome To Every Way Woman";
+  var currentId = FEATURED_ID;
+  var currentTitle = FEATURED_TITLE;
+  function openVideo(id, title, thumbSrc){
+    currentId = id;
+    currentTitle = title || FEATURED_TITLE;
+    titleEl.textContent = currentTitle;
+    facadeImg.setAttribute("src", thumbSrc || facadeDefaultSrc);
+    facadeImg.setAttribute("alt", currentTitle);
     box.hidden = false;
     document.body.style.overflow = "hidden";
   }
@@ -68,16 +79,28 @@
     var iframe = panel.querySelector("iframe");
     if (iframe) { iframe.remove(); facade.style.display = ""; }
   }
+  function closeMobileMenuIfOpen(){
+    if (mobileNav.classList.contains("open")) setMenu(false);
+  }
   document.querySelectorAll("[data-open-video]").forEach(function(b){
     b.addEventListener("click", function(){
-      if (mobileNav.classList.contains("open")) setMenu(false);
-      openVideo();
+      closeMobileMenuIfOpen();
+      openVideo(FEATURED_ID, FEATURED_TITLE, facadeDefaultSrc);
+    });
+  });
+  document.querySelectorAll(".ep-thumb").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      closeMobileMenuIfOpen();
+      var card = btn.closest(".ep-card");
+      var t = card ? card.querySelector("h3").textContent : FEATURED_TITLE;
+      var img = btn.querySelector("img");
+      openVideo(btn.getAttribute("data-video"), t, img ? img.getAttribute("src") : null);
     });
   });
   facade.addEventListener("click", function(){
     var iframe = document.createElement("iframe");
-    iframe.src = "https://www.youtube.com/embed/" + YT_ID + "?autoplay=1&rel=0";
-    iframe.title = "Welcome To Every Way Woman";
+    iframe.src = "https://www.youtube.com/embed/" + currentId + "?autoplay=1&rel=0";
+    iframe.title = currentTitle;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
     iframe.allowFullscreen = true;
     facade.style.display = "none";
