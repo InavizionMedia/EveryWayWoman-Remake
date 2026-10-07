@@ -28,8 +28,8 @@
   var heroCopy = document.querySelector(".hero-copy");
   var slideCopy = [
     {t: "Real talk.<br><em>Every way.</em>", s: "Daytime talk for women — news, real stories, and great conversations."},
-    {t: "Pull up<br><em>a chair.</em>", s: "From our studio to your screen — the mics are hot and the conversation is already going."},
-    {t: "Real women.<br><em>Real stories.</em>", s: "Hosts and guests keeping it honest about love, work, family, and everything after."}
+    {t: "Pull up<br><em>a chair.</em>", s: "Behind every episode: real cameras, real questions, real women."},
+    {t: "Take<br><em>your seat.</em>", s: "Two chairs, one honest conversation — new episodes every week."}
   ];
   var cur = 0, timer = null;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
