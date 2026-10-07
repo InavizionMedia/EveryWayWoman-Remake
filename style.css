@@ -222,6 +222,9 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 .ep-section.expanded .ep-card.is-extra{animation:cardIn .5s ease}
 @keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .section-head{text-align:center;margin-bottom:2rem}
+/* v6 (Jon): circular show badge medallion above the Watch kicker — tight crop hides the source file's white padding */
+.section-badge{display:block;width:clamp(140px,22vw,180px);aspect-ratio:1/1;border-radius:50%;overflow:hidden;margin:0 auto 1.2rem;box-shadow:0 18px 40px rgba(43,26,20,.22),0 0 0 1px rgba(201,162,77,.4)}
+.section-badge img{display:block;width:104%;height:104%;max-width:none;margin:-2% 0 0 -2%;object-fit:cover}
 .section-head h2{font-size:clamp(2.4rem,8vw,4rem)}
 .count-line{color:var(--muted);margin-top:.6rem;font-size:.95rem;letter-spacing:.06em}
 .ep-section{margin-top:4.5rem}
