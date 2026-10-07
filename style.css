@@ -284,9 +284,9 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 .footer-note{opacity:.55;font-size:.82rem}
 
 /* ---------- lightbox ---------- */
-.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.25rem;overflow-y:auto}
+.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.25rem;overflow-y:auto;height:100vh;height:100dvh}
 .lightbox[hidden]{display:none}
-.lightbox-backdrop{position:absolute;inset:0;background:rgba(42,27,23,.62);backdrop-filter:blur(8px)}
+.lightbox-backdrop{position:fixed;inset:0;background:rgba(42,27,23,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .lightbox-panel{position:relative;width:min(960px,100%);background:transparent;border:0;box-shadow:none;padding:0}
 .lightbox-title{color:var(--ivory);font-family:var(--serif);font-size:14px;font-weight:700;margin:0 3rem .7rem 0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .lightbox-close{position:absolute;top:-3.1rem;right:0;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid rgba(250,245,236,.4);background:rgba(42,27,23,.55);color:var(--ivory);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s}
