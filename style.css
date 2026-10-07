@@ -88,7 +88,9 @@ body:not(.menu-open) .site-header.scrolled .menu-toggle span{background:var(--co
 .mobile-sub-inner{overflow:hidden;min-height:0;padding-top:.65rem}
 .mobile-sub a{font-size:.95rem;padding:.5rem 0 .5rem 3rem;border-bottom:0;color:rgba(250,245,236,.75)}
 .mobile-sub a::before{content:"—";color:var(--gold);margin-right:.6rem}
-.mobile-nav .mobile-watch{margin-top:auto;margin-left:auto;margin-right:auto;align-self:center;background:var(--gold);color:var(--cocoa)}
+.mobile-nav .mobile-watch{margin-top:auto;margin-left:auto;margin-right:auto;align-self:center;background:var(--gold);color:var(--cocoa);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s ease,transform .35s ease,background .25s ease,color .25s ease}
+/* menu's bottom WATCH fades in only when opened past the hero — same rule as the header WATCH */
+body.past-hero .mobile-nav .mobile-watch{opacity:1;transform:none;pointer-events:auto}
 .mobile-nav a.active{color:var(--gold)}
 /* keep the page's back-to-top from floating over the open menu */
 body.menu-open .back-to-top{opacity:0;pointer-events:none;transform:translateY(12px)}
