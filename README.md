@@ -2,7 +2,7 @@
 
 > Cinematic remake of [everywaywoman.com](https://everywaywoman.com/) — Yolando Mitchell Brown's Every Way Woman talk show site. Same cinematic grammar as the AVIO concept, its own unique voice.
 
-**Branch policy:** work happens on the latest *-vN / project branch. List branches before editing. Never assume the GitHub default is the working line. Working line: `everywaywoman-v1` (GitHub default is `main`).
+**Branch policy:** work happens on the latest *-vN / project branch. List branches before editing. Never assume the GitHub default is the working line. Working line: `everywaywoman-v6` (GitHub default is `main`).
 
 [![Preview](https://img.shields.io/badge/Preview-Live-brightgreen)](https://inavizionmedia.github.io/EveryWayWoman-Remake/)
 [![Pages](https://img.shields.io/badge/GitHub_Pages-deployed-blue)](https://inavizionmedia.github.io/EveryWayWoman-Remake/)
@@ -14,14 +14,17 @@
 
 ## Screenshots
 
-![Hero — cinematic full-bleed studio with glass featured-episode card](media/hero.jpg)
+![Hero — cinematic full-bleed studio with glass featured-episode card](media/hero.jpg?v=20261007b)
 *Cinematic hero: oversized serif headline, floating glass featured-episode card, action bar overlapping the seam.*
 
-![Episode library with topic filters](media/screenshot-episodes.jpg)
+![Episode library with topic filters](media/screenshot-episodes.jpg?v=20261007b)
 *Episode library: real episode titles, topic filter pills, warm editorial cards.*
 
-![Mobile — 390px](media/screenshot-mobile.jpg)
+![Mobile — 390px](media/screenshot-mobile.jpg?v=20261007b)
 *390px mobile: stacked hero, wrapped action bar, single-column episode cards.*
+
+![Dark theme — espresso register](media/hero-dark.jpg?v=20261007b)
+*Espresso dark theme: same layout, inverted register, persisted header toggle.*
 
 ## What's inside
 
@@ -30,7 +33,7 @@
 
 ## Design language
 
-Cinematic editorial: full-bleed photographic hero with oversized serif headline, floating glass "featured episode" card, action-bar strip overlapping the hero, asymmetric story grid, episode library with filter pills. Warm ivory + deep cocoa/berry + gold (proposed — Jon/Yolando to lock). Distinct from YolandoMitchellBrown-Remake's ivory/navy/red.
+Cinematic editorial: full-bleed photographic hero with oversized serif headline, floating glass "featured episode" card, action-bar strip overlapping the hero, asymmetric story grid, episode library with filter pills. Warm ivory + deep cocoa/berry + gold. Espresso dark theme (not black) via a persisted header toggle — same layout, inverted register. Distinct from YolandoMitchellBrown-Remake's ivory/navy/red.
 
 ## Tech stack
 
@@ -57,4 +60,6 @@ EveryWayWoman-Remake/
 ## Branches — not overwrites
 
 - `main` — landing ground, deploys to Pages
-- `everywaywoman-v1` — active working line; frozen as restore point when v2 cuts
+- `everywaywoman-v6` — active working line (dark theme live)
+- `everywaywoman-v5` — frozen restore point (pre-dark)
+- `everywaywoman-v4` … `everywaywoman-v1` — frozen restore points
