@@ -287,11 +287,15 @@ section[id],.ep-section[id]{scroll-margin-top:100px}
 .lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.25rem}
 .lightbox[hidden]{display:none}
 .lightbox-backdrop{position:absolute;inset:0;background:rgba(42,27,23,.62);backdrop-filter:blur(8px)}
-.lightbox-panel{position:relative;width:min(880px,100%);background:var(--ivory);border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(42,27,23,.5);border:1px solid rgba(195,154,74,.45);padding:2.8rem 1.4rem 1.4rem}
-.lightbox-title{position:absolute;top:1rem;left:1.4rem;z-index:2;color:var(--cocoa);font-family:var(--serif);font-size:15px;font-weight:700}
-.lightbox-close{position:absolute;top:.75rem;right:.75rem;z-index:2;width:32px;height:32px;border-radius:50%;border:1px solid rgba(58,37,33,.35);background:rgba(250,245,236,.8);color:var(--cocoa);font-size:.95rem;cursor:pointer;transition:background .25s}
-.lightbox-close:hover{background:var(--cream)}
+.lightbox-panel{position:relative;width:min(960px,100%);background:transparent;border:0;box-shadow:none;padding:0}
+.lightbox-title{color:var(--ivory);font-family:var(--serif);font-size:14px;font-weight:700;margin:0 3rem .7rem 0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.lightbox-close{position:absolute;top:-3.1rem;right:0;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid rgba(250,245,236,.4);background:rgba(42,27,23,.55);color:var(--ivory);font-size:1rem;cursor:pointer;transition:background .25s}
+.lightbox-close:hover{background:rgba(42,27,23,.85)}
 .lightbox-panel iframe{width:100%;aspect-ratio:16/9;border:0;display:block;border-radius:12px;background:#000}
+@media(max-width:759px){
+  .lightbox{padding:.75rem}
+  .lightbox-close{top:-2.9rem}
+}
 
 /* ---------- back to top ---------- */
 .back-to-top{position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid rgba(195,154,74,.5);background:linear-gradient(135deg,#2e1c14,#8a5f26);color:var(--ivory);font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s}
