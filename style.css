@@ -4,8 +4,8 @@
   --cocoa:#3A2521; --cocoa-2:#4A322B; --berry:#6B2D3F;
   --gold:#C39A4A; --gold-soft:#E4C988;
   --ink:#2A1B17; --muted:#71604F;
-  --serif:"Bodoni Moda",Georgia,serif;
-  --sans:"Cinzel",-apple-system,"Segoe UI",sans-serif;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Jost",-apple-system,"Segoe UI",sans-serif;
   --r:14px;
   --shadow:0 18px 50px -18px rgba(58,37,33,.35);
 }
