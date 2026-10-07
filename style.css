@@ -19,6 +19,8 @@ a{color:inherit}
 .kicker{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.9rem}
 .kicker-light{color:var(--gold-soft)}
 .pill{display:inline-block;padding:.42rem 1rem;border-radius:999px;font-size:.78rem;letter-spacing:.08em;border:1px solid rgba(195,154,74,.55);color:var(--ink);background:rgba(255,253,248,.7);text-transform:uppercase;font-weight:500}
+button.pill{font-family:inherit;cursor:pointer}
+button.pill:hover{border-color:var(--gold)}
 .pill-cta{background:var(--cocoa);color:var(--ivory);border-color:var(--cocoa);text-decoration:none;transition:transform .25s,background .25s}
 .pill-cta:hover{background:var(--berry);transform:translateY(-2px)}
 
@@ -185,6 +187,14 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
 
 /* ---------- episodes ---------- */
 .episodes{padding:5rem 1.25rem;max-width:1240px;margin:0 auto}
+.topic-filters{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.3rem}
+.tchip{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  padding:.55rem 1.15rem;border-radius:999px;border:1px solid rgba(58,37,33,.35);
+  background:transparent;color:var(--cocoa);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.tchip:hover{border-color:var(--cocoa)}
+.tchip.is-active{background:var(--cocoa);border-color:var(--cocoa);color:var(--ivory)}
+.ep-card[hidden],.ep-section[hidden]{display:none!important}
+section[id]{scroll-margin-top:84px}
 .section-head{text-align:center;margin-bottom:2rem}
 .section-head h2{font-size:clamp(2.4rem,8vw,4rem)}
 .count-line{color:var(--muted);margin-top:.6rem;font-size:.95rem;letter-spacing:.06em}
