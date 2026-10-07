@@ -25,13 +25,14 @@ a{color:inherit}
 h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 
 /* ---------- header ---------- */
-.site-header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s;
-  background:linear-gradient(180deg,rgba(250,245,236,.8) 0%,rgba(250,245,236,.35) 55%,rgba(250,245,236,0) 100%)}
+.site-header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s;background:transparent}
 .site-header.scrolled{background:rgba(250,245,236,.92);backdrop-filter:blur(14px);box-shadow:0 8px 30px -12px rgba(58,37,33,.25)}
+.site-header.scrolled .brand-script{color:var(--cocoa);text-shadow:none}
+.site-header.scrolled .brand-sub{text-shadow:none}
 .header-inner{max-width:1240px;margin:0 auto;padding:.9rem 1.25rem;display:flex;align-items:center;gap:1.5rem;position:relative;z-index:60}
 .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
-.brand-script{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--cocoa);text-shadow:0 1px 12px rgba(250,245,236,.9),0 0 3px rgba(250,245,236,.9)}
-.brand-sub{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:.25rem;text-shadow:0 1px 10px rgba(250,245,236,.9)}
+.brand-script{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--ivory);text-shadow:0 1px 12px rgba(43,26,20,.6),0 0 4px rgba(43,26,20,.65)}
+.brand-sub{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:.25rem;text-shadow:0 1px 10px rgba(43,26,20,.6)}
 
 /* portrait phones: aim each hero slide at its subject instead of the empty center */
 @media(max-width:759px){
