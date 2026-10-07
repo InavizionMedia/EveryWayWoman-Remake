@@ -232,6 +232,16 @@
     epSections.forEach(function(sec){
       var anyVisible = Array.prototype.some.call(sec.querySelectorAll(".ep-card"), function(c){ return !c.hidden; });
       sec.hidden = !anyVisible;
+      sec.classList.toggle("filtering", topic !== "all");
+      if (topic === "all") {
+        sec.classList.remove("expanded");
+        var smBtn = sec.querySelector(".show-more");
+        if (smBtn) {
+          smBtn.setAttribute("aria-expanded", "false");
+          var smLabel = smBtn.querySelector(".sm-label");
+          if (smLabel) smLabel.textContent = "Show " + sec.querySelectorAll(".ep-card.is-extra").length + " more";
+        }
+      }
     });
     tChips.forEach(function(ch){
       var on = ch.getAttribute("data-topic") === topic;
@@ -251,6 +261,28 @@
       var fCard = document.querySelector(".featured-card.expanded");
       if (fCard && fToggle) { fCard.classList.remove("expanded"); fToggle.setAttribute("aria-expanded", "false"); }
     });
+  });
+
+  /* ---------- per-section show more (past 6 cards) ---------- */
+  var PAGE_SIZE = 6;
+  epSections.forEach(function(sec){
+    var cards = Array.prototype.slice.call(sec.querySelectorAll(".ep-card"));
+    if (cards.length <= PAGE_SIZE) return;
+    sec.classList.add("has-more");
+    var extras = cards.slice(PAGE_SIZE);
+    extras.forEach(function(c){ c.classList.add("is-extra"); });
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "show-more";
+    btn.innerHTML = '<span class="sm-label">Show ' + extras.length + ' more</span><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "Show more episodes in this section");
+    btn.addEventListener("click", function(){
+      var open = sec.classList.toggle("expanded");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.querySelector(".sm-label").textContent = open ? "Show less" : "Show " + extras.length + " more";
+    });
+    sec.appendChild(btn);
   });
 
   /* ---------- footer year ---------- */
