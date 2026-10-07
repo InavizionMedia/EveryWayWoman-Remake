@@ -215,6 +215,44 @@
     nlDone.hidden = false;
   });
 
+  /* ---------- topic filtering ---------- */
+  var tChips = Array.prototype.slice.call(document.querySelectorAll(".tchip"));
+  var epCards = Array.prototype.slice.call(document.querySelectorAll(".ep-card"));
+  var epSections = Array.prototype.slice.call(document.querySelectorAll(".ep-section"));
+  var countLine = document.querySelector(".episodes .count-line");
+  var countDefault = countLine ? countLine.textContent : "";
+  var topicNames = {all:"every topic", "self-worth":"Self-Worth", relationships:"Relationships", career:"Career", family:"Family"};
+  function applyTopic(topic){
+    var shown = 0;
+    epCards.forEach(function(card){
+      var match = topic === "all" || card.getAttribute("data-topic") === topic;
+      card.hidden = !match;
+      if (match) shown++;
+    });
+    epSections.forEach(function(sec){
+      var anyVisible = Array.prototype.some.call(sec.querySelectorAll(".ep-card"), function(c){ return !c.hidden; });
+      sec.hidden = !anyVisible;
+    });
+    tChips.forEach(function(ch){
+      var on = ch.getAttribute("data-topic") === topic;
+      ch.classList.toggle("is-active", on);
+      ch.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if (countLine) countLine.textContent = topic === "all" ? countDefault : ("Showing " + shown + " on " + topicNames[topic] + ".");
+  }
+  tChips.forEach(function(ch){
+    ch.addEventListener("click", function(){ applyTopic(ch.getAttribute("data-topic")); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-goto-topic]"), function(el){
+    el.addEventListener("click", function(){
+      applyTopic(el.getAttribute("data-goto-topic"));
+      var lib = document.getElementById("episodes");
+      if (lib) lib.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block: "start"});
+      var fCard = document.querySelector(".featured-card.expanded");
+      if (fCard && fToggle) { fCard.classList.remove("expanded"); fToggle.setAttribute("aria-expanded", "false"); }
+    });
+  });
+
   /* ---------- footer year ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
