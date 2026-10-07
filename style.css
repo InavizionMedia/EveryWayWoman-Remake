@@ -80,7 +80,9 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .mobile-sub a::before{content:"—";color:var(--gold);margin-right:.6rem}
 .mobile-nav .mobile-watch{margin-top:auto;align-self:flex-start;background:var(--gold);color:var(--cocoa)}
 /* header inverts while the cocoa menu is open */
-body.menu-open .site-header{background:transparent;box-shadow:none;backdrop-filter:none}
+body.menu-open .site-header.scrolled{background:transparent;box-shadow:none;backdrop-filter:none}
+body.menu-open .site-header.scrolled .brand-script{color:var(--ivory);text-shadow:0 0 26px rgba(201,162,77,.55),0 2px 8px rgba(0,0,0,.35)}
+body.menu-open .site-header.scrolled .brand-sub{color:var(--gold-soft);text-shadow:0 0 14px rgba(201,162,77,.35)}
 body.menu-open .brand-script{color:var(--ivory);text-shadow:0 0 26px rgba(201,162,77,.55),0 2px 8px rgba(0,0,0,.35)}
 body.menu-open .brand-sub{color:var(--gold-soft);text-shadow:0 0 14px rgba(201,162,77,.35)}
 body.menu-open .menu-toggle span{background:var(--ivory)}
