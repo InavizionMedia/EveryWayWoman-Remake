@@ -100,6 +100,20 @@
   mobileNav.querySelectorAll("a").forEach(function(a){
     a.addEventListener("click", function(){ setMenu(false); });
   });
+  /* submenu taps: close the menu, then land on the section title (native anchors misbehave while body overflow is locked) */
+  document.querySelectorAll('.mobile-sub a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var target = document.querySelector(a.getAttribute("href"));
+      setMenu(false);
+      if (!target) return;
+      setTimeout(function(){
+        var y = target.getBoundingClientRect().top + window.pageYOffset - 100;
+        if (reduceMotion) { window.scrollTo(0, y); }
+        else { window.scrollTo({top: y, behavior: "smooth"}); }
+      }, 80);
+    });
+  });
 
   /* ---------- featured card accordion (mobile) ---------- */
   var fToggle = document.getElementById("featuredToggle");
