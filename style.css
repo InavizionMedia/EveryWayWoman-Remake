@@ -122,7 +122,11 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
   box-shadow:0 24px 60px -18px rgba(42,27,23,.55),inset 0 1px 0 rgba(255,255,255,.5);color:var(--ivory)}
 .featured-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
   background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 45%,transparent 60%)}
-.featured-card h2{font-size:1.45rem;margin:.2rem 0 .8rem}
+.featured-head{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:left;display:flex;align-items:center;gap:.75rem;width:100%;cursor:default}
+.fh-text{flex:1;min-width:0}
+.featured-title{display:block;font-family:var(--serif);font-weight:700;line-height:1.08;font-size:1.45rem;margin:.2rem 0 .8rem}
+.f-chev{flex:none;color:var(--gold);display:none}
+.featured-body{display:block}
 .featured-card .pill-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem}
 .featured-card .pill{background:rgba(42,27,23,.35);border-color:rgba(255,253,248,.4);color:var(--ivory);font-size:.68rem}
 .play-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--cocoa);border:0;border-radius:999px;padding:.7rem 1.4rem;font-family:var(--sans);font-weight:600;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .25s,background .25s}
@@ -147,7 +151,16 @@ body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa
 @media(max-width:759px){
   .hero{flex-direction:column;align-items:stretch;justify-content:flex-start;padding:5.75rem 0 0}
   .hero-badge{position:static;align-self:flex-start;margin:0 0 1rem 1.25rem}
-  .featured-card{position:static;width:calc(100% - 2.5rem);margin:0 auto 1.5rem}
+  .featured-card{position:static;width:calc(100% - 2.5rem);margin:0 auto 1.5rem;padding:1.1rem 1.2rem}
+  .featured-head{cursor:pointer}
+  .featured-card .featured-title{font-size:1.12rem;margin:0}
+  .featured-card .kicker{font-size:.6rem;letter-spacing:.22em;margin-bottom:.35rem;white-space:nowrap}
+  .f-chev{display:block;transition:transform .3s}
+  .featured-card.expanded .f-chev{transform:rotate(180deg)}
+  .featured-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+  .featured-card.expanded .featured-body{grid-template-rows:1fr}
+  .featured-body-inner{overflow:hidden;min-height:0}
+  .featured-body .pill-row{margin-top:1rem}
   .hero-copy{padding:0 1.25rem 7.5rem}
   .hero-copy h1{font-size:clamp(2.75rem,14vw,4rem)}
   .hero-dots{bottom:6.75rem}
