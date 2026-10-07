@@ -109,7 +109,8 @@
       setMenu(false);
       if (!target) return;
       setTimeout(function(){
-        var y = target.getBoundingClientRect().top + window.pageYOffset - 100;
+        var head = target.querySelector(".ep-section-head") || target;
+        var y = head.getBoundingClientRect().top + window.pageYOffset - 100;
         if (reduceMotion) { window.scrollTo(0, y); }
         else { window.scrollTo({top: y, behavior: "smooth"}); }
       }, 80);

@@ -60,7 +60,9 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .watch-btn{margin-left:auto;background:linear-gradient(135deg,#2e1c14,#8a5f26);color:var(--ivory);border:0;border-radius:999px;padding:.65rem 1.6rem;font-family:var(--sans);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:filter .25s,transform .25s,opacity .35s ease}
 /* header WATCH fades in only after the hero scrolls away (the menu's own WATCH stays as-is) */
 .header-inner > .watch-btn{opacity:0;transform:translateY(-8px);pointer-events:none}
-body.past-hero .header-inner > .watch-btn,body.menu-open .header-inner > .watch-btn{opacity:1;transform:none;pointer-events:auto}
+/* header WATCH appears past the hero on the page — never inside the open mobile menu */
+body.past-hero:not(.menu-open) .header-inner > .watch-btn{opacity:1;transform:none;pointer-events:auto}
+body.menu-open .header-inner > .watch-btn{opacity:0;transform:translateY(-8px);pointer-events:none}
 .watch-btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
 .desktop-nav + .watch-btn{margin-left:0}
 .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.5rem;position:relative}
@@ -88,9 +90,7 @@ body:not(.menu-open) .site-header.scrolled .menu-toggle span{background:var(--co
 .mobile-sub-inner{overflow:hidden;min-height:0;padding-top:.65rem}
 .mobile-sub a{font-size:.95rem;padding:.5rem 0 .5rem 3rem;border-bottom:0;color:rgba(250,245,236,.75)}
 .mobile-sub a::before{content:"—";color:var(--gold);margin-right:.6rem}
-.mobile-nav .mobile-watch{margin-top:auto;margin-left:auto;margin-right:auto;align-self:center;background:var(--gold);color:var(--cocoa);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s ease,transform .35s ease,background .25s ease,color .25s ease}
-/* menu's bottom WATCH fades in only when opened past the hero — same rule as the header WATCH */
-body.past-hero .mobile-nav .mobile-watch{opacity:1;transform:none;pointer-events:auto}
+.mobile-nav .mobile-watch{margin-top:auto;margin-left:auto;margin-right:auto;align-self:center;background:var(--gold);color:var(--cocoa)}
 .mobile-nav a.active{color:var(--gold)}
 /* keep the page's back-to-top from floating over the open menu */
 body.menu-open .back-to-top{opacity:0;pointer-events:none;transform:translateY(12px)}
@@ -102,7 +102,6 @@ body.menu-open .brand-script{color:var(--ivory);text-shadow:0 0 26px rgba(201,16
 body.menu-open .brand-sub{color:var(--gold-soft);text-shadow:0 0 14px rgba(201,162,77,.35)}
 body.menu-open .menu-toggle span{background:rgba(250,245,236,.62);box-shadow:none;width:18px}
 body.menu-open .menu-toggle::before{display:none}
-body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--cocoa)}
