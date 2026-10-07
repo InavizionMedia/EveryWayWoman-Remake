@@ -124,7 +124,7 @@ body.menu-open .menu-toggle::before{display:none}
 .hero-copy p{color:var(--ivory);opacity:.92;margin-top:1rem;font-size:1.05rem;max-width:34ch;text-shadow:0 1px 12px rgba(42,27,23,.65),0 1px 3px rgba(42,27,23,.5)}
 
 /* floating glass featured card */
-.featured-card{position:absolute;z-index:2;top:9.5rem;right:1.25rem;width:min(300px,72vw);padding:1.4rem 1.35rem;border-radius:18px;
+.featured-card{position:absolute;z-index:2;top:auto;bottom:203px;right:1.25rem;width:min(300px,72vw);padding:1.4rem 1.35rem;border-radius:18px;
   background:linear-gradient(135deg,rgba(43,26,20,.82),rgba(133,94,38,.76));
   backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
   border:1px solid rgba(201,162,77,.45);
