@@ -23,6 +23,9 @@
 ![Mobile — 390px](media/screenshot-mobile.jpg)
 *390px mobile: stacked hero, wrapped action bar, single-column episode cards.*
 
+![Dark theme — espresso register](media/hero-dark.jpg)
+*Espresso dark theme: same layout, inverted register, persisted header toggle.*
+
 ## What's inside
 
 - `index.html` — the remake (single-file + separate image assets)
