@@ -101,6 +101,18 @@
     a.addEventListener("click", function(){ setMenu(false); });
   });
 
+  /* ---------- featured card accordion (mobile) ---------- */
+  var fToggle = document.getElementById("featuredToggle");
+  if (fToggle) {
+    var fCard = fToggle.closest(".featured-card");
+    var mqMobile = window.matchMedia("(max-width:759px)");
+    fToggle.addEventListener("click", function(){
+      if (!mqMobile.matches) return;
+      var open = fCard.classList.toggle("expanded");
+      fToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
   /* ---------- scroll-spy ---------- */
   var spyLinks = document.querySelectorAll("[data-spy]");
   var EP_SECTIONS = ["full-shows", "open-dialogue", "relationships"];
