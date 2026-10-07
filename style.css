@@ -57,8 +57,8 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;font-weight:700}
 .drop-menu a{display:block;text-decoration:none;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);padding:.75rem 1rem;border-radius:9px;opacity:.8}
 .drop-menu a:hover{background:var(--cream);opacity:1;color:var(--berry)}
 .drop-menu a::after{display:none}
-.watch-btn{margin-left:auto;background:var(--cocoa);color:var(--ivory);border:0;border-radius:999px;padding:.65rem 1.6rem;font-family:var(--sans);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .25s}
-.watch-btn:hover{background:var(--berry);transform:translateY(-2px)}
+.watch-btn{margin-left:auto;background:linear-gradient(135deg,#2e1c14,#8a5f26);color:var(--ivory);border:0;border-radius:999px;padding:.65rem 1.6rem;font-family:var(--sans);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:filter .25s,transform .25s}
+.watch-btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
 .desktop-nav + .watch-btn{margin-left:0}
 .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.5rem;position:relative}
 .menu-toggle span{width:24px;height:2px;background:var(--gold);border-radius:2px;transition:transform .3s,opacity .3s;box-shadow:0 1px 6px rgba(43,26,20,.5)}
@@ -66,7 +66,7 @@ body:not(.menu-open) .site-header.scrolled .menu-toggle span{background:var(--co
 .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .menu-toggle.open span:nth-child(2){opacity:0}
 .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-nav{position:fixed;inset:0;background:var(--cocoa);color:var(--ivory);padding:5.5rem 2rem 2.5rem;display:flex;flex-direction:column;gap:.4rem;transform:translateX(102%);transition:transform .45s cubic-bezier(.22,.9,.3,1);z-index:49;overflow-y:auto}
+.mobile-nav{position:fixed;inset:0;background:linear-gradient(180deg,#2b1a14 0%,#4a2c1a 100%);color:var(--ivory);padding:5.5rem 2rem 2.5rem;display:flex;flex-direction:column;gap:.4rem;transform:translateX(102%);transition:transform .45s cubic-bezier(.22,.9,.3,1);z-index:49;overflow-y:auto}
 .mobile-nav.open{transform:none}
 .mobile-nav a{text-decoration:none;font-size:1.15rem;color:var(--ivory);padding:.7rem 0;border-bottom:1px solid rgba(250,245,236,.14);display:flex;align-items:baseline;gap:1rem;opacity:0;transform:translateX(18px);transition:opacity .35s,transform .35s}
 .mobile-nav.open a{opacity:1;transform:none}
@@ -95,8 +95,8 @@ body.menu-open .site-header.scrolled .brand-script{color:var(--ivory);text-shado
 body.menu-open .site-header.scrolled .brand-sub{color:var(--gold-soft);text-shadow:0 0 14px rgba(201,162,77,.35)}
 body.menu-open .brand-script{color:var(--ivory);text-shadow:0 0 26px rgba(201,162,77,.55),0 2px 8px rgba(0,0,0,.35)}
 body.menu-open .brand-sub{color:var(--gold-soft);text-shadow:0 0 14px rgba(201,162,77,.35)}
-body.menu-open .menu-toggle span{background:#fffdf8;box-shadow:none;position:relative;z-index:1}
-body.menu-open .menu-toggle::before{content:"";position:absolute;inset:-7px;background:var(--gold);border-radius:50%;z-index:0}
+body.menu-open .menu-toggle span{background:rgba(250,245,236,.62);box-shadow:none;width:18px}
+body.menu-open .menu-toggle::before{display:none}
 body.menu-open .header-inner>.watch-btn{background:var(--gold);color:var(--cocoa)}
 
 /* ---------- hero ---------- */
@@ -261,8 +261,8 @@ section[id]{scroll-margin-top:84px}
 .newsletter-inner>p{color:var(--muted);margin-bottom:1.8rem}
 .nl-form{display:flex;gap:.6rem;background:var(--paper);border:1px solid rgba(195,154,74,.4);border-radius:999px;padding:.4rem .4rem .4rem 1.4rem;box-shadow:var(--shadow)}
 .nl-form input{flex:1;border:0;background:none;font-family:var(--sans);font-size:1rem;color:var(--ink);outline:none;min-width:0}
-.nl-form button{background:var(--cocoa);color:var(--ivory);border:0;border-radius:999px;padding:.85rem 2rem;font-family:var(--sans);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem;cursor:pointer;transition:background .25s}
-.nl-form button:hover{background:var(--berry)}
+.nl-form button{background:linear-gradient(135deg,#2e1c14,#8a5f26);color:var(--ivory);border:0;border-radius:999px;padding:.85rem 2rem;font-family:var(--sans);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem;cursor:pointer;transition:filter .25s}
+.nl-form button:hover{filter:brightness(1.12)}
 .nl-done{margin-top:1.2rem;color:var(--berry);font-weight:500}
 
 /* ---------- footer ---------- */
